@@ -10,7 +10,7 @@ public class Mage extends Hero {
 
     @Override
     public void attack(Character target) {
-        System.out.println(name + " casts a spell at " + target.name + "!");
+        System.out.println(name + " casts a spell at " + target.getName() + "!");
         target.takeDamage(strength);
         mana -= 10;
     }
@@ -22,7 +22,7 @@ public class Mage extends Hero {
             target.takeDamage(strength * 3);
             mana -= 30;
         } else {
-            System.out.println(name + " doesn’t have enough mana!");
+            System.out.println(name + " doesn't have enough mana!");
         }
     }
 }

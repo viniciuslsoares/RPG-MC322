@@ -10,7 +10,7 @@ public class Warrior extends Hero {
 
     @Override
     public void attack(Character target) {
-        System.out.println(name + " strikes " + target.name + " with a sword slash!");
+        System.out.println(name + " strikes " + target.getName() + " with a sword slash!");
         target.takeDamage(strength);
         rage += 10;
     }
