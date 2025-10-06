@@ -5,7 +5,9 @@ public class Main {
         System.out.println("=== THE HERO ENTERS THE DUNGEON ===");
 
         Warrior hero = new Warrior("Arthas");
-        Monster[] monsters = { new Goblin(), new Skeleton(), new Goblin() };
+        Monster[] monsters = { new Goblin(), 
+                                new Skeleton(), 
+                                new Ghost() };
 
         hero.showStatus();
         System.out.println();

@@ -30,7 +30,9 @@ public abstract class Character {
     }
 
     public void showStatus() {
-        System.out.println("[" + name + "] HP: " + healthPoints + " | Strength: " + strength);
+        System.out.println("[" + name + "] HP: " + 
+                            healthPoints + " | Strength: " + 
+                            strength);
     }
 
     public boolean isAlive() {
