@@ -7,10 +7,10 @@ public class Archer extends Hero {
     private double precision;  
     private Random random = new Random();
 
-    public Archer(String name, int hp, int str, int arrows, float precision) {
+    public Archer(String name, int hp, int str, int arrows) {
         super(name, hp, str, 1);
         this.arrows = arrows;           
-        this.precision = precision;      
+        this.precision = 0.8;      
     }
 
     @Override
@@ -46,7 +46,7 @@ public class Archer extends Hero {
         for (int i = 0; i < 3; i++) {
             if (random.nextDouble() < precision * 0.8) { // less accurate per shot
                 hits++;
-                int damage = (int) (totalDamage() * 1,25);
+                int damage = (int) (totalDamage() * 1.25);
                 target.takeDamage(damage);
             }
         }

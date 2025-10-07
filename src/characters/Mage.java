@@ -9,7 +9,7 @@ public class Mage extends Hero {
     public Mage(String name, int hp, int str) {
         super(name, hp, str, 1);
         this.mana = 100;
-        this.basicAttack = 10
+        this.basicAttack = 10;
     }
 
     @Override
