@@ -5,8 +5,8 @@ import java.util.Random;
 public class Warrior extends Hero {
     private int rage;
 
-    public Warrior(String name) {
-        super(name, 120, 15, 1);
+    public Warrior(String name, int hp, int str) {
+        super(name, hp, str, 1);
         this.rage = 0;
     }
 

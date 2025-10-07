@@ -5,8 +5,8 @@ import java.util.Random;
 public class Mage extends Hero {
     private int mana;
 
-    public Mage(String name) {
-        super(name, 80, 10, 1);
+    public Mage(String name, int hp, int str) {
+        super(name, hp, str, 1);
         this.mana = 100;
     }
 
