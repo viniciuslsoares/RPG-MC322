@@ -1,9 +1,8 @@
 package characters;
 
 public class Ghost extends Monster {
-
     public Ghost() {
-        super("Ghost", 35, 12, 30);  // name, HP, strength, XP granted
+        super("Ghost", 45, 12, 30);
     }
 
     @Override

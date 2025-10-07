@@ -1,9 +1,12 @@
 package characters;
 
+import weapons.Weapon;
+
 public abstract class Character {
     protected String name;
     protected int healthPoints;
     protected int strength;
+    protected Weapon weapon;
 
     public Character(String name, int healthPoints, int strength) {
         this.name = name;
@@ -11,17 +14,16 @@ public abstract class Character {
         this.strength = strength;
     }
 
-    public String getName() {
-        return name;
-    }
+    public int getStrength() { return strength; }
+    public void setStrength(int newStrength) { strength = newStrength; }
+    public void updateStrength(int addedStrength) { strength += addedStrength;}
 
-    public int getHealthPoints() {
-        return healthPoints;
-    }
+    public int getHealthPoints() { return healthPoints; }
+    public void getHealthPoints(int newHealthPoints) { healthPoints = newHealthPoints; }    
+    public void updateHealthPoints(int addedHealthPoints) { healthPoints += addedHealthPoints;}
 
-    public int getStrength() {
-        return strength;
-    }
+    public String getName() { return name; }
+    public boolean isAlive() { return healthPoints > 0; }
 
     public void takeDamage(int damage) {
         healthPoints -= damage;
@@ -30,13 +32,18 @@ public abstract class Character {
     }
 
     public void showStatus() {
-        System.out.println("[" + name + "] HP: " + 
-                            healthPoints + " | Strength: " + 
-                            strength);
+        System.out.print("[" + name + "] HP: " + healthPoints + " | STR: " + strength);
+        if (weapon != null) System.out.print(" | Weapon: " + weapon.getName());
+        System.out.println();
     }
 
-    public boolean isAlive() {
-        return healthPoints > 0;
+    public void equipWeapon(Weapon newWeapon) {
+        this.weapon = newWeapon;
+        System.out.println(name + " equipped " + newWeapon.getName() + "!");
+    }
+
+    protected int totalDamage() {
+        return strength + (weapon != null ? weapon.getBonusDamage() : 0);
     }
 
     public abstract void attack(Character target);

@@ -1,5 +1,7 @@
 package characters;
 
+import java.util.Random;
+
 public class Mage extends Hero {
     private int mana;
 
@@ -10,17 +12,23 @@ public class Mage extends Hero {
 
     @Override
     public void attack(Character target) {
-        System.out.println(name + " casts a spell at " + target.getName() + "!");
-        target.takeDamage(strength);
+        int damage = totalDamage();
+        System.out.println(name + " casts a spell at " + target.getName() + " for " + damage + " damage!");
+        target.takeDamage(damage);
         mana -= 10;
     }
 
     @Override
     public void useSpecialAbility(Character target) {
-        if (mana >= 30) {
-            System.out.println(name + " conjures a FIREBALL!");
-            target.takeDamage(strength * 3);
-            mana -= 30;
+        Random rand = new Random();
+        if (mana >= 20) {
+            if (rand.nextDouble() < luck) {
+                System.out.println(name + " channels a FIRESTORM! Critical magic hit!");
+                target.takeDamage(totalDamage() * 3);
+            } else {
+                System.out.println(name + " miscasts the spell and it fizzles!");
+            }
+            mana -= 20;
         } else {
             System.out.println(name + " doesn't have enough mana!");
         }
