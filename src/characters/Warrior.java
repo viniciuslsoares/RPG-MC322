@@ -23,7 +23,7 @@ public class Warrior extends Hero {
         Random rand = new Random();
         if (rand.nextDouble() < luck) {
             System.out.println(name + " enters a FURY state and lands a critical hit!");
-            target.takeDamage(totalDamage() * 2);
+            target.takeDamage(totalDamage() + rage);
         } else {
             System.out.println(name + " swings wildly but misses!");
         }
